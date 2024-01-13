@@ -25,8 +25,7 @@ install: build
 	openrsync -av --delete --exclude traffic_graphs/*.png --exclude traffic_graphs/*.png.gz public/ web0.mimas.dev:/home/www/htdocs/yggdrasil.institute
 
 build:
-	hugo
 	find public -type f -exec gzip -fk {} \;
 
 clean:
-	rm -Rf public resources
+	find public -type f -name "*.gz" -exec rm {} \;
